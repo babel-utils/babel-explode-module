@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`imports default 1`] = `
+"
+code:
+
+import a from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'default'
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;
+
+exports[`imports default and named 1`] = `
+"
+code:
+
+import a, {b} from \\"c\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'default'
+        local: 'a'
+        source: 'c'
+    -
+        external: 'b'
+        local: 'b'
+        source: 'c'
+  statements: []"
+`;
+
+exports[`imports effect 1`] = `
+"
+code:
+
+import \\"c\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        source: 'c'
+  statements: []"
+`;
+
+exports[`imports named 1`] = `
+"
+code:
+
+import {a} from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;
+
+exports[`imports named renamed 1`] = `
+"
+code:
+
+import {a as b} from \\"c\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'a'
+        local: 'b'
+        source: 'c'
+  statements: []"
+`;
+
+exports[`imports namespace 1`] = `
+"
+code:
+
+import * as a from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;

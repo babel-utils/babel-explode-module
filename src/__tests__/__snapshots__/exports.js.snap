@@ -1,0 +1,478 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`export default binding 1`] = `
+"
+code:
+
+export default a;
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: 'a'
+  imports: []
+  statements: []"
+`;
+
+exports[`export default class 1`] = `
+"
+code:
+
+export default class {}
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:23)
+        declarations:
+          - VariableDeclarator (1:15,1:23)
+              id: Identifier
+                name: '_default'
+              init: ClassExpression (1:15,1:23)
+                body: ClassBody (1:21,1:23)
+                  body: []
+                id: null
+                superClass: null
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export default function 1`] = `
+"
+code:
+
+export default function() {}
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:28)
+        declarations:
+          - VariableDeclarator (1:15,1:28)
+              id: Identifier
+                name: '_default'
+              init: FunctionExpression (1:15,1:28)
+                async: false
+                body: BlockStatement (1:26,1:28)
+                  body: []
+                  directives: []
+                expression: false
+                generator: false
+                id: null
+                params: []
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export default named class 1`] = `
+"
+code:
+
+export default class a {}
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:15,1:25)
+        body: ClassBody (1:23,1:25)
+          body: []
+        id: Identifier (1:21,1:22)
+          name: 'a'
+        superClass: null"
+`;
+
+exports[`export default named function 1`] = `
+"
+code:
+
+export default function a() {}
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:15,1:30)
+        async: false
+        body: BlockStatement (1:28,1:30)
+          body: []
+          directives: []
+        expression: false
+        generator: false
+        id: Identifier (1:24,1:25)
+          name: 'a'
+        params: []"
+`;
+
+exports[`export default object 1`] = `
+"
+code:
+
+export default {a};
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ObjectExpression (1:15,1:18)
+                properties:
+                  - ObjectProperty (1:16,1:17)
+                      computed: false
+                      extra:
+                        shorthand: true
+                      key: Identifier (1:16,1:17)
+                        name: 'a'
+                      method: false
+                      shorthand: true
+                      value: Identifier (1:16,1:17)
+                        __clone: Function
+                        name: 'a'
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export from all 1`] = `
+"
+code:
+
+export * from \\"b\\";
+
+exploded:
+
+  exports:
+    -
+        source: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export from default 1`] = `
+"
+code:
+
+export default from \\"b\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export from default renamed 1`] = `
+"
+code:
+
+export a from \\"b\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export from named 1`] = `
+"
+code:
+
+export {a} from \\"b\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export from named default renamed 1`] = `
+"
+code:
+
+export {default as a} from \\"b\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export from named multiple 1`] = `
+"
+code:
+
+export {a, b} from \\"b\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+    -
+        external: 'b'
+        local: 'b'
+        source: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export from named renamed 1`] = `
+"
+code:
+
+export {a as b} from \\"c\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'b'
+        local: 'a'
+        source: 'c'
+  imports: []
+  statements: []"
+`;
+
+exports[`export named class 1`] = `
+"
+code:
+
+export class a {}
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:7,1:17)
+        body: ClassBody (1:15,1:17)
+          body: []
+        id: Identifier (1:13,1:14)
+          name: 'a'
+        superClass: null"
+`;
+
+exports[`export named function 1`] = `
+"
+code:
+
+export function a() {}
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:7,1:22)
+        async: false
+        body: BlockStatement (1:20,1:22)
+          body: []
+          directives: []
+        expression: false
+        generator: false
+        id: Identifier (1:16,1:17)
+          name: 'a'
+        params: []"
+`;
+
+exports[`export named let 1`] = `
+"
+code:
+
+export let a;
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        innerComments: undefined
+        kind: 'let'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export named specifier 1`] = `
+"
+code:
+
+export {a}
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements: []"
+`;
+
+exports[`export named specifier multiple 1`] = `
+"
+code:
+
+export {a, b}
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+    -
+        external: 'b'
+        local: 'b'
+  imports: []
+  statements: []"
+`;
+
+exports[`export named specifier renamed 1`] = `
+"
+code:
+
+export {a as b}
+
+exploded:
+
+  exports:
+    -
+        external: 'b'
+        local: 'a'
+  imports: []
+  statements: []"
+`;
+
+exports[`export named var 1`] = `
+"
+code:
+
+export var a;
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        innerComments: undefined
+        kind: 'var'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export named var multiple 1`] = `
+"
+code:
+
+export var a, b;
+
+exploded:
+
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+    -
+        external: 'b'
+        local: 'b'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        innerComments: undefined
+        kind: 'var'
+        leadingComments: undefined
+        trailingComments: undefined
+    - VariableDeclaration (1:14,1:15)
+        declarations:
+          - VariableDeclarator (1:14,1:15)
+              id: Identifier (1:14,1:15)
+                name: 'b'
+              init: null
+        innerComments: undefined
+        kind: 'var'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
