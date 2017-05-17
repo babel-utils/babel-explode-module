@@ -44,7 +44,7 @@ Will be exploded to this:
 ```js
 {
   imports: [
-    { local: "foo", external: "bar", source: "mod" },
+    { local: "foo", external: "foo", source: "mod" },
     { local: "bar", external: "bar", source: "mod" },
   ],
   exports: [
