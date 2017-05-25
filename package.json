@@ -1,7 +1,7 @@
 {
   "name": "babel-explode-module",
   "description": "Serialize a module into an easier format to work with",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "author": "James Kyle <me@thejameskyle.com>",
   "license": "MIT",
