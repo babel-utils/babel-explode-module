@@ -140,7 +140,7 @@ exploders.ExportDefaultDeclaration = (node: Node, exploded: Exploded) => {
     }
 
     exploded.statements.push(declaration);
-  } else if (t.isObjectExpression(declaration)) {
+  } else if (t.isExpression(declaration)) {
     local = '_default';
     exploded.statements.push(
       toVariableDeclaration('const', local, declaration),

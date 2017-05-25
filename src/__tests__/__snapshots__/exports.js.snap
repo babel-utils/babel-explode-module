@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`export default array 1`] = `
+"
+code:
+
+export default [a];
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ArrayExpression (1:15,1:18)
+                elements:
+                  - Identifier (1:16,1:17)
+                      name: 'a'
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
 exports[`export default binding 1`] = `
 "
 code:
@@ -14,6 +43,33 @@ exploded:
         local: 'a'
   imports: []
   statements: []"
+`;
+
+exports[`export default boolean 1`] = `
+"
+code:
+
+export default true;
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:19)
+        declarations:
+          - VariableDeclarator (1:15,1:19)
+              id: Identifier
+                name: '_default'
+              init: BooleanLiteral (1:15,1:19)
+                value: true
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
 `;
 
 exports[`export default class 1`] = `
@@ -40,6 +96,38 @@ exploded:
                   body: []
                 id: null
                 superClass: null
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export default expression 1`] = `
+"
+code:
+
+export default a ? b : c;
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:24)
+        declarations:
+          - VariableDeclarator (1:15,1:24)
+              id: Identifier
+                name: '_default'
+              init: ConditionalExpression (1:15,1:24)
+                alternate: Identifier (1:23,1:24)
+                  name: 'c'
+                consequent: Identifier (1:19,1:20)
+                  name: 'b'
+                test: Identifier (1:15,1:16)
+                  name: 'a'
         innerComments: undefined
         kind: 'const'
         leadingComments: undefined
@@ -128,6 +216,36 @@ exploded:
         params: []"
 `;
 
+exports[`export default number 1`] = `
+"
+code:
+
+export default 1;
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:16)
+        declarations:
+          - VariableDeclarator (1:15,1:16)
+              id: Identifier
+                name: '_default'
+              init: NumericLiteral (1:15,1:16)
+                extra:
+                  raw: '1'
+                  rawValue: 1
+                value: 1
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
 exports[`export default object 1`] = `
 "
 code:
@@ -160,6 +278,36 @@ exploded:
                       value: Identifier (1:16,1:17)
                         __clone: Function
                         name: 'a'
+        innerComments: undefined
+        kind: 'const'
+        leadingComments: undefined
+        trailingComments: undefined"
+`;
+
+exports[`export default string 1`] = `
+"
+code:
+
+export default \\"a\\";
+
+exploded:
+
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: StringLiteral (1:15,1:18)
+                extra:
+                  raw: '\\"a\\"'
+                  rawValue: 'a'
+                value: 'a'
         innerComments: undefined
         kind: 'const'
         leadingComments: undefined

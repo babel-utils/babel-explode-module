@@ -6,6 +6,11 @@ testSuite({
   tests: {
     'default binding': {code: 'export default a;'},
     'default object': {code: 'export default {a};'},
+    'default array': {code: 'export default [a];'},
+    'default number': {code: 'export default 1;'},
+    'default string': {code: 'export default "a";'},
+    'default boolean': {code: 'export default true;'},
+    'default expression': {code: 'export default a ? b : c;'},
     'default named function': {code: 'export default function a() {}'},
     'default function': {code: 'export default function() {}'},
     'default named class': {code: 'export default class a {}'},
