@@ -44,8 +44,8 @@ Will be exploded to this:
 ```js
 {
   imports: [
-    { local: "foo", external: "foo", source: "mod" },
-    { local: "bar", external: "bar", source: "mod" },
+    { kind: "value", local: "foo", external: "foo", source: "mod" },
+    { kind: "value", local: "bar", external: "bar", source: "mod" },
   ],
   exports: [
     { local: "_default", external: "default" },
@@ -76,9 +76,9 @@ export * from "mod";
 // output
 {
   imports: [
-    { local: "a", external: "a", source: "mod" },
-    { local: "b", external: "b", source: "mod" },
-    { local: "c", source: "d" },
+    { kind: "value", local: "a", external: "a", source: "mod" },
+    { kind: "value", local: "b", external: "b", source: "mod" },
+    { kind: "value", local: "c", source: "d" },
   ],
   exports: [
     { local: "d", external: "d" },
