@@ -12,6 +12,7 @@ exploded:
   imports:
     -
         external: 'default'
+        kind: 'value'
         local: 'a'
         source: 'b'
   statements: []"
@@ -29,10 +30,12 @@ exploded:
   imports:
     -
         external: 'default'
+        kind: 'value'
         local: 'a'
         source: 'c'
     -
         external: 'b'
+        kind: 'value'
         local: 'b'
         source: 'c'
   statements: []"
@@ -53,6 +56,106 @@ exploded:
   statements: []"
 `;
 
+exports[`imports import type 1`] = `
+"
+code:
+
+import type a from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'default'
+        kind: 'type'
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;
+
+exports[`imports import type inner 1`] = `
+"
+code:
+
+import {type a} from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'type'
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;
+
+exports[`imports import typeof 1`] = `
+"
+code:
+
+import typeof a from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'default'
+        kind: 'typeof'
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;
+
+exports[`imports import typeof inner 1`] = `
+"
+code:
+
+import {typeof a} from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'typeof'
+        local: 'a'
+        source: 'b'
+  statements: []"
+`;
+
+exports[`imports import value/type/typeof inner 1`] = `
+"
+code:
+
+import {a, type b, typeof c} from \\"b\\";
+
+exploded:
+
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'value'
+        local: 'a'
+        source: 'b'
+    -
+        external: 'b'
+        kind: 'type'
+        local: 'b'
+        source: 'b'
+    -
+        external: 'c'
+        kind: 'typeof'
+        local: 'c'
+        source: 'b'
+  statements: []"
+`;
+
 exports[`imports named 1`] = `
 "
 code:
@@ -65,6 +168,7 @@ exploded:
   imports:
     -
         external: 'a'
+        kind: 'value'
         local: 'a'
         source: 'b'
   statements: []"
@@ -82,6 +186,7 @@ exploded:
   imports:
     -
         external: 'a'
+        kind: 'value'
         local: 'b'
         source: 'c'
   statements: []"
@@ -98,6 +203,7 @@ exploded:
   exports: []
   imports:
     -
+        kind: 'value'
         local: 'a'
         source: 'b'
   statements: []"
