@@ -67,7 +67,7 @@ exploded:
   exports: []
   imports:
     -
-        external: 'default'
+        external: 'a'
         kind: 'type'
         local: 'a'
         source: 'b'
@@ -103,7 +103,7 @@ exploded:
   exports: []
   imports:
     -
-        external: 'default'
+        external: 'a'
         kind: 'typeof'
         local: 'a'
         source: 'b'

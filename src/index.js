@@ -112,8 +112,8 @@ exploders.ImportDeclaration = (node: Node, exploded: Exploded) => {
         local = specifier.local.name;
         kind = specifier.importKind || kind;
       } else if (specifier.type === 'ImportDefaultSpecifier') {
-        external = 'default';
         local = specifier.local.name;
+        external = kind === 'value' ? 'default' : local; // Flow is dumb...
       } else if (specifier.type === 'ImportNamespaceSpecifier') {
         local = specifier.local.name;
       } else {
