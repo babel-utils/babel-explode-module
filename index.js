@@ -58,8 +58,10 @@ let location = node => {
 
 let comments = node => {
   let obj = {};
-  if (node.leadingComments !== undefined) obj.leadingComments = node.leadingComments;
-  if (node.trailingComments !== undefined) obj.trailingComments = node.trailingComments;
+  if (node.leadingComments !== undefined)
+    obj.leadingComments = node.leadingComments;
+  if (node.trailingComments !== undefined)
+    obj.trailingComments = node.trailingComments;
   if (node.innerComments !== undefined) obj.innerComments = node.innerComments;
   return obj;
 };
@@ -72,15 +74,12 @@ let toVariableDeclaration = (
   return Object.assign(
     t.variableDeclaration(kind, [
       Object.assign(
-        t.variableDeclarator(
-          t.identifier(name),
-          t.toExpression(declaration),
-        ),
+        t.variableDeclarator(t.identifier(name), t.toExpression(declaration)),
         location(declaration)
       ),
     ]),
     location(declaration),
-    comments(declaration),
+    comments(declaration)
   );
 };
 
@@ -156,7 +155,7 @@ exploders.ExportDefaultDeclaration = (node, exploded) => {
   } else if (t.isExpression(declaration)) {
     local = '_default';
     exploded.statements.push(
-      toVariableDeclaration('const', local, declaration),
+      toVariableDeclaration('const', local, declaration)
     );
   } else {
     throw unexpected(declaration);
@@ -174,11 +173,13 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
       for (let declarator of declaration.declarations) {
         let name = declarator.id.name;
         exploded.exports.push(toModuleSpecifier(null, name, name, source));
-        exploded.statements.push(Object.assign(
-          t.variableDeclaration(declaration.kind, [declarator]),
-          location(declarator),
-          comments(declaration),
-        ));
+        exploded.statements.push(
+          Object.assign(
+            t.variableDeclaration(declaration.kind, [declarator]),
+            location(declarator),
+            comments(declaration)
+          )
+        );
       }
     } else if (
       t.isClassDeclaration(declaration) ||
@@ -218,11 +219,13 @@ exploders.ExportAllDeclaration = (node, exploded) => {
 
 exploders.VariableDeclaration = (node, exploded) => {
   for (let declarator of node.declarations) {
-    exploded.statements.push(Object.assign(
-      t.variableDeclaration(node.kind, [declarator]),
-      location(declarator),
-      comments(node),
-    ));
+    exploded.statements.push(
+      Object.assign(
+        t.variableDeclaration(node.kind, [declarator]),
+        location(declarator),
+        comments(node)
+      )
+    );
   }
 };
 
