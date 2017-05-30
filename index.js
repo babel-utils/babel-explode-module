@@ -1,6 +1,8 @@
 // @flow
+'use strict';
 const t = require('babel-types');
 
+/*::
 type Location = {
   line: number,
   column: number,
@@ -36,52 +38,57 @@ type Exploded = {
   exports: ExplodedExports,
   statements: ExplodedStatements,
 };
+*/
 
-let isProgram = (value: Node) => {
-  return value.type === 'Program';
+let isProgram = node => {
+  return node.type === 'Program';
 };
 
-let unexpected = (value: Node) => {
-  return new Error(`Unexpected node type: ${value.type}`);
+let unexpected = node => {
+  return new Error(`Unexpected node type: ${node.type}`);
 };
 
-let location = (node: Node) => {
-  return {
-    start: node.start,
-    end: node.end,
-    loc: node.loc,
-  };
+let location = node => {
+  let obj = {};
+  if (node.start !== undefined) obj.start = node.start;
+  if (node.end !== undefined) obj.end = node.end;
+  if (node.loc !== undefined) obj.loc = node.loc;
+  return obj;
 };
 
-let comments = (node: Node) => {
-  return {
-    leadingComments: node.leadingComments,
-    trailingComments: node.trailingComments,
-    innerComments: node.innerComments,
-  };
+let comments = node => {
+  let obj = {};
+  if (node.leadingComments !== undefined) obj.leadingComments = node.leadingComments;
+  if (node.trailingComments !== undefined) obj.trailingComments = node.trailingComments;
+  if (node.innerComments !== undefined) obj.innerComments = node.innerComments;
+  return obj;
 };
 
-let toVariableDeclaration = (kind: string, name: string, declaration: Node) => {
-  return {
-    ...t.variableDeclaration(kind, [
-      {
-        ...t.variableDeclarator(
+let toVariableDeclaration = (
+  kind /*: string */,
+  name /*: string */,
+  declaration /*: Node */
+) => {
+  return Object.assign(
+    t.variableDeclaration(kind, [
+      Object.assign(
+        t.variableDeclarator(
           t.identifier(name),
           t.toExpression(declaration),
         ),
-        ...location(declaration),
-      },
+        location(declaration),
+      ),
     ]),
-    ...location(declaration),
-    ...comments(declaration),
-  };
+    location(declaration),
+    comments(declaration),
+  );
 };
 
 let toModuleSpecifier = (
-  kind: 'value' | 'type' | 'typeof' | null,
-  local: string | null,
-  external: string | null,
-  source: string | null,
+  kind /*: 'value' | 'type' | 'typeof' | null */,
+  local /*: string | null */,
+  external /*: string | null */,
+  source /*: string | null */,
 ) => {
   let specifier = {};
   if (kind) specifier.kind = kind;
@@ -91,13 +98,13 @@ let toModuleSpecifier = (
   return specifier;
 };
 
-let getSource = (node: Node): string | null => {
+let getSource = node => {
   return node.source ? node.source.value : null;
 };
 
 let exploders = {};
 
-exploders.ImportDeclaration = (node: Node, exploded: Exploded) => {
+exploders.ImportDeclaration = (node, exploded) => {
   let source = getSource(node);
   let importKind = node.importKind;
 
@@ -127,7 +134,7 @@ exploders.ImportDeclaration = (node: Node, exploded: Exploded) => {
   }
 };
 
-exploders.ExportDefaultDeclaration = (node: Node, exploded: Exploded) => {
+exploders.ExportDefaultDeclaration = (node, exploded) => {
   let source = getSource(node);
   let declaration = node.declaration;
   let local;
@@ -158,7 +165,7 @@ exploders.ExportDefaultDeclaration = (node: Node, exploded: Exploded) => {
   exploded.exports.push(toModuleSpecifier(null, local, 'default', source));
 };
 
-exploders.ExportNamedDeclaration = (node: Node, exploded: Exploded) => {
+exploders.ExportNamedDeclaration = (node, exploded) => {
   let source = getSource(node);
   let declaration = node.declaration;
 
@@ -167,11 +174,11 @@ exploders.ExportNamedDeclaration = (node: Node, exploded: Exploded) => {
       for (let declarator of declaration.declarations) {
         let name = declarator.id.name;
         exploded.exports.push(toModuleSpecifier(null, name, name, source));
-        exploded.statements.push({
-          ...t.variableDeclaration(declaration.kind, [declarator]),
-          ...location(declarator),
-          ...comments(declaration),
-        });
+        exploded.statements.push(Object.assign(
+          t.variableDeclaration(declaration.kind, [declarator]),
+          location(declarator),
+          comments(declaration),
+        ));
       }
     } else if (
       t.isClassDeclaration(declaration) ||
@@ -204,30 +211,30 @@ exploders.ExportNamedDeclaration = (node: Node, exploded: Exploded) => {
   }
 };
 
-exploders.ExportAllDeclaration = (node: Node, exploded: Exploded) => {
+exploders.ExportAllDeclaration = (node, exploded) => {
   let source = getSource(node);
   exploded.exports.push(toModuleSpecifier(null, null, null, source));
 };
 
-exploders.VariableDeclaration = (node: Node, exploded: Exploded) => {
+exploders.VariableDeclaration = (node, exploded) => {
   for (let declarator of node.declarations) {
-    exploded.statements.push({
-      ...t.variableDeclaration(node.kind, [declarator]),
-      ...location(declarator),
-      ...comments(node),
-    });
+    exploded.statements.push(Object.assign(
+      t.variableDeclaration(node.kind, [declarator]),
+      location(declarator),
+      comments(node),
+    ));
   }
 };
 
 // do nothing...
 exploders.EmptyStatement = () => {};
 
-export default function explodeModule(node: Node): Exploded {
+function explodeModule(node /*: Node */) /*: Exploded */ {
   if (t.isFile(node)) {
     node = node.program;
   } else if (!t.isProgram(node)) {
     throw new Error(
-      `Must pass a "File" or "Program" node to explode module, received ${node.type}`,
+      `Must pass a "File" or "Program" node to explode module, received ${node.type}`
     );
   }
 
@@ -248,3 +255,5 @@ export default function explodeModule(node: Node): Exploded {
 
   return exploded;
 }
+
+module.exports = explodeModule;

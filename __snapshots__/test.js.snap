@@ -1,0 +1,1032 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1. default 1`] = `
+"
+import a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'default'
+        kind: 'value'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`1. default binding 1`] = `
+"
+export default a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`1. empty 1`] = `
+"
+;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`2. default object 1`] = `
+"
+export default {a};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ObjectExpression (1:15,1:18)
+                properties:
+                  - ObjectProperty (1:16,1:17)
+                      computed: false
+                      extra:
+                        shorthand: true
+                      key: Identifier (1:16,1:17)
+                        name: 'a'
+                      method: false
+                      shorthand: true
+                      value: Identifier (1:16,1:17)
+                        __clone: Function
+                        name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`2. named 1`] = `
+"
+import {a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'value'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`2. variable 1`] = `
+"
+var a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - VariableDeclaration (1:4,1:5)
+        declarations:
+          - VariableDeclarator (1:4,1:5)
+              id: Identifier (1:4,1:5)
+                name: 'a'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`3. default array 1`] = `
+"
+export default [a];
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ArrayExpression (1:15,1:18)
+                elements:
+                  - Identifier (1:16,1:17)
+                      name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`3. function 1`] = `
+"
+function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - FunctionDeclaration (1:0,1:15)
+        async: false
+        body: BlockStatement (1:13,1:15)
+          body: []
+          directives: []
+        expression: false
+        generator: false
+        id: Identifier (1:9,1:10)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`3. named renamed 1`] = `
+"
+import {a as b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'value'
+        local: 'b'
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`4. class 1`] = `
+"
+class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - ClassDeclaration (1:0,1:10)
+        body: ClassBody (1:8,1:10)
+          body: []
+        id: Identifier (1:6,1:7)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`4. default number 1`] = `
+"
+export default 1;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:16)
+        declarations:
+          - VariableDeclarator (1:15,1:16)
+              id: Identifier
+                name: '_default'
+              init: NumericLiteral (1:15,1:16)
+                extra:
+                  raw: '1'
+                  rawValue: 1
+                value: 1
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`4. namespace 1`] = `
+"
+import * as a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        kind: 'value'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`5. default and named 1`] = `
+"
+import a, {b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'default'
+        kind: 'value'
+        local: 'a'
+        source: 'c'
+    -
+        external: 'b'
+        kind: 'value'
+        local: 'b'
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`5. default string 1`] = `
+"
+export default \\"a\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: StringLiteral (1:15,1:18)
+                extra:
+                  raw: '\\"a\\"'
+                  rawValue: 'a'
+                value: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`5. variable multiple 1`] = `
+"
+var a, b;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - VariableDeclaration (1:4,1:5)
+        declarations:
+          - VariableDeclarator (1:4,1:5)
+              id: Identifier (1:4,1:5)
+                name: 'a'
+              init: null
+        kind: 'var'
+    - VariableDeclaration (1:7,1:8)
+        declarations:
+          - VariableDeclarator (1:7,1:8)
+              id: Identifier (1:7,1:8)
+                name: 'b'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`6. default boolean 1`] = `
+"
+export default true;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:19)
+        declarations:
+          - VariableDeclarator (1:15,1:19)
+              id: Identifier
+                name: '_default'
+              init: BooleanLiteral (1:15,1:19)
+                value: true
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`6. effect 1`] = `
+"
+import \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`6. for 1`] = `
+"
+for (;;) {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - ForStatement (1:0,1:11)
+        body: BlockStatement (1:9,1:11)
+          body: []
+          directives: []
+        init: null
+        test: null
+        update: null
+\`;
+"
+`;
+
+exports[`7. default expression 1`] = `
+"
+export default a ? b : c;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:24)
+        declarations:
+          - VariableDeclarator (1:15,1:24)
+              id: Identifier
+                name: '_default'
+              init: ConditionalExpression (1:15,1:24)
+                alternate: Identifier (1:23,1:24)
+                  name: 'c'
+                consequent: Identifier (1:19,1:20)
+                  name: 'b'
+                test: Identifier (1:15,1:16)
+                  name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`7. import type 1`] = `
+"
+import type a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'type'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`7. while 1`] = `
+"
+while (a) {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - WhileStatement (1:0,1:12)
+        body: BlockStatement (1:10,1:12)
+          body: []
+          directives: []
+        test: Identifier (1:7,1:8)
+          name: 'a'
+\`;
+"
+`;
+
+exports[`8. default named function 1`] = `
+"
+export default function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:15,1:30)
+        async: false
+        body: BlockStatement (1:28,1:30)
+          body: []
+          directives: []
+        expression: false
+        generator: false
+        id: Identifier (1:24,1:25)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`8. import typeof 1`] = `
+"
+import typeof a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'typeof'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`8. type alias 1`] = `
+"
+type a = {};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - TypeAlias (1:0,1:12)
+        id: Identifier (1:5,1:6)
+          name: 'a'
+        right: ObjectTypeAnnotation (1:9,1:11)
+          callProperties: []
+          exact: false
+          indexers: []
+          properties: []
+        typeParameters: null
+\`;
+"
+`;
+
+exports[`9. default function 1`] = `
+"
+export default function() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:28)
+        declarations:
+          - VariableDeclarator (1:15,1:28)
+              id: Identifier
+                name: '_default'
+              init: FunctionExpression (1:15,1:28)
+                async: false
+                body: BlockStatement (1:26,1:28)
+                  body: []
+                  directives: []
+                expression: false
+                generator: false
+                id: null
+                params: []
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`9. import type inner 1`] = `
+"
+import {type a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'type'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`9. interface 1`] = `
+"
+interface a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - InterfaceDeclaration (1:0,1:14)
+        body: ObjectTypeAnnotation (1:12,1:14)
+          callProperties: []
+          exact: false
+          indexers: []
+          properties: []
+        extends: []
+        id: Identifier (1:10,1:11)
+          name: 'a'
+        mixins: []
+        typeParameters: null
+\`;
+"
+`;
+
+exports[`10. default named class 1`] = `
+"
+export default class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:15,1:25)
+        body: ClassBody (1:23,1:25)
+          body: []
+        id: Identifier (1:21,1:22)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`10. import typeof inner 1`] = `
+"
+import {typeof a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'typeof'
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`11. default class 1`] = `
+"
+export default class {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:23)
+        declarations:
+          - VariableDeclarator (1:15,1:23)
+              id: Identifier
+                name: '_default'
+              init: ClassExpression (1:15,1:23)
+                body: ClassBody (1:21,1:23)
+                  body: []
+                id: null
+                superClass: null
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`11. import value/type/typeof inner 1`] = `
+"
+import {a, type b, typeof c} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        kind: 'value'
+        local: 'a'
+        source: 'b'
+    -
+        external: 'b'
+        kind: 'type'
+        local: 'b'
+        source: 'b'
+    -
+        external: 'c'
+        kind: 'typeof'
+        local: 'c'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`12. named specifier 1`] = `
+"
+export {a}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`13. named specifier multiple 1`] = `
+"
+export {a, b}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+    -
+        external: 'b'
+        local: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`14. named specifier renamed 1`] = `
+"
+export {a as b}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'b'
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`15. named function 1`] = `
+"
+export function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:7,1:22)
+        async: false
+        body: BlockStatement (1:20,1:22)
+          body: []
+          directives: []
+        expression: false
+        generator: false
+        id: Identifier (1:16,1:17)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`16. named class 1`] = `
+"
+export class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:7,1:17)
+        body: ClassBody (1:15,1:17)
+          body: []
+        id: Identifier (1:13,1:14)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`17. named var 1`] = `
+"
+export var a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`18. named var multiple 1`] = `
+"
+export var a, b;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+    -
+        external: 'b'
+        local: 'b'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'var'
+    - VariableDeclaration (1:14,1:15)
+        declarations:
+          - VariableDeclarator (1:14,1:15)
+              id: Identifier (1:14,1:15)
+                name: 'b'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`19. named let 1`] = `
+"
+export let a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'let'
+\`;
+"
+`;
+
+exports[`20. from default 1`] = `
+"
+export default from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`21. from default renamed 1`] = `
+"
+export a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`22. from all 1`] = `
+"
+export * from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`23. from named 1`] = `
+"
+export {a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`24. from named multiple 1`] = `
+"
+export {a, b} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'a'
+        source: 'b'
+    -
+        external: 'b'
+        local: 'b'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`25. from named renamed 1`] = `
+"
+export {a as b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'b'
+        local: 'a'
+        source: 'c'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`26. from named default renamed 1`] = `
+"
+export {default as a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
