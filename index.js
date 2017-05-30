@@ -76,7 +76,7 @@ let toVariableDeclaration = (
           t.identifier(name),
           t.toExpression(declaration),
         ),
-        location(declaration),
+        location(declaration)
       ),
     ]),
     location(declaration),
@@ -88,7 +88,7 @@ let toModuleSpecifier = (
   kind /*: 'value' | 'type' | 'typeof' | null */,
   local /*: string | null */,
   external /*: string | null */,
-  source /*: string | null */,
+  source /*: string | null */
 ) => {
   let specifier = {};
   if (kind) specifier.kind = kind;
