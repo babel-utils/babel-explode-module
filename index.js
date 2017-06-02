@@ -8,15 +8,17 @@ type Location = {
   column: number,
 };
 
+type Loc = {
+  start?: Location,
+  end?: Location,
+};
+
 type Node = {
   type: string,
   [key: string]: any,
   start?: number,
   end?: number,
-  loc?: {
-    start?: Location,
-    end?: Location,
-  },
+  loc?: Loc,
   leadingComments?: Object | null | void,
   trailingComments?: Object | null | void,
   innerComments?: Object | null | void,
@@ -27,6 +29,7 @@ type ModuleSpecifier = {
   local?: string,
   external?: string,
   source?: string,
+  loc: Loc,
 };
 
 type ExplodedImports = Array<ModuleSpecifier>;
@@ -87,13 +90,15 @@ let toModuleSpecifier = (
   kind /*: 'value' | 'type' | 'typeof' | null */,
   local /*: string | null */,
   external /*: string | null */,
-  source /*: string | null */
+  source /*: string | null */,
+  loc /*: Loc */
 ) => {
   let specifier = {};
   if (kind) specifier.kind = kind;
   if (local) specifier.local = local;
   if (external) specifier.external = external;
   if (source) specifier.source = source;
+  specifier.loc = loc;
   return specifier;
 };
 
@@ -126,10 +131,10 @@ exploders.ImportDeclaration = (node, exploded) => {
         throw unexpected(specifier);
       }
 
-      exploded.imports.push(toModuleSpecifier(kind, local, external, source));
+      exploded.imports.push(toModuleSpecifier(kind, local, external, source, specifier.loc));
     }
   } else {
-    exploded.imports.push(toModuleSpecifier(null, null, null, source));
+    exploded.imports.push(toModuleSpecifier(null, null, null, source, node.loc));
   }
 };
 
@@ -161,7 +166,7 @@ exploders.ExportDefaultDeclaration = (node, exploded) => {
     throw unexpected(declaration);
   }
 
-  exploded.exports.push(toModuleSpecifier(null, local, 'default', source));
+  exploded.exports.push(toModuleSpecifier(null, local, 'default', source, node.loc));
 };
 
 exploders.ExportNamedDeclaration = (node, exploded) => {
@@ -172,7 +177,7 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
     if (t.isVariableDeclaration(declaration)) {
       for (let declarator of declaration.declarations) {
         let name = declarator.id.name;
-        exploded.exports.push(toModuleSpecifier(null, name, name, source));
+        exploded.exports.push(toModuleSpecifier(null, name, name, source, declaration.loc));
         exploded.statements.push(
           Object.assign(
             t.variableDeclaration(declaration.kind, [declarator]),
@@ -188,7 +193,7 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
       t.isInterfaceDeclaration(declaration)
     ) {
       let name = declaration.id.name;
-      exploded.exports.push(toModuleSpecifier(null, name, name, source));
+      exploded.exports.push(toModuleSpecifier(null, name, name, source, declaration.loc));
       exploded.statements.push(declaration);
     } else {
       throw unexpected(declaration);
@@ -207,14 +212,14 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
         external = exported;
       }
 
-      exploded.exports.push(toModuleSpecifier(null, local, external, source));
+      exploded.exports.push(toModuleSpecifier(null, local, external, source, specifier.loc));
     }
   }
 };
 
 exploders.ExportAllDeclaration = (node, exploded) => {
   let source = getSource(node);
-  exploded.exports.push(toModuleSpecifier(null, null, null, source));
+  exploded.exports.push(toModuleSpecifier(null, null, null, source, node.loc));
 };
 
 exploders.VariableDeclaration = (node, exploded) => {

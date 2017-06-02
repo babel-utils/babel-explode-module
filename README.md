@@ -44,13 +44,13 @@ Will be exploded to this:
 ```js
 {
   imports: [
-    { kind: "value", local: "foo", external: "foo", source: "mod" },
-    { kind: "value", local: "bar", external: "bar", source: "mod" },
+    { kind: "value", local: "foo", external: "foo", source: "mod", loc: {...} },
+    { kind: "value", local: "bar", external: "bar", source: "mod", loc: {...} },
   ],
   exports: [
-    { local: "_default", external: "default" },
-    { local: "baz", external: "baz" },
-    { local: "bat", external: "bat" },
+    { local: "_default", external: "default", loc: {...} },
+    { local: "baz", external: "baz", loc: {...} },
+    { local: "bat", external: "bat", loc: {...} },
   },
   statements: [
     { type: "FunctionDeclaration" },

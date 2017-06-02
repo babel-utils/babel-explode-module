@@ -12,6 +12,13 @@ import a from \\"b\\";
     -
         external: 'default'
         kind: 'value'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -29,6 +36,13 @@ export default a;
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: 'a'
   imports: []
   statements: []
@@ -60,6 +74,13 @@ export default {a};
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -98,6 +119,13 @@ import {a} from \\"b\\";
     -
         external: 'a'
         kind: 'value'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -136,6 +164,13 @@ export default [a];
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -189,6 +224,13 @@ import {a as b} from \\"c\\";
     -
         external: 'a'
         kind: 'value'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'b'
         source: 'c'
   statements: []
@@ -226,6 +268,13 @@ export default 1;
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -255,6 +304,13 @@ import * as a from \\"b\\";
   imports:
     -
         kind: 'value'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -274,11 +330,25 @@ import a, {b} from \\"c\\";
     -
         external: 'default'
         kind: 'value'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
         source: 'c'
     -
         external: 'b'
         kind: 'value'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
         local: 'b'
         source: 'c'
   statements: []
@@ -296,6 +366,13 @@ export default \\"a\\";
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -352,6 +429,13 @@ export default true;
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 20
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -377,6 +461,13 @@ import \\"c\\";
   exports: []
   imports:
     -
+        loc:
+          end:
+            column: 11
+            line: 1
+          start:
+            column: 0
+            line: 1
         source: 'c'
   statements: []
 \`;
@@ -414,6 +505,13 @@ export default a ? b : c;
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 25
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -446,6 +544,13 @@ import type a from \\"b\\";
     -
         external: 'a'
         kind: 'type'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 12
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -483,6 +588,13 @@ export default function a() {}
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 30
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: 'a'
   imports: []
   statements:
@@ -512,6 +624,13 @@ import typeof a from \\"b\\";
     -
         external: 'a'
         kind: 'typeof'
+        loc:
+          end:
+            column: 15
+            line: 1
+          start:
+            column: 14
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -552,6 +671,13 @@ export default function() {}
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 28
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -586,6 +712,13 @@ import {type a} from \\"b\\";
     -
         external: 'a'
         kind: 'type'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -628,6 +761,13 @@ export default class a {}
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 25
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: 'a'
   imports: []
   statements:
@@ -653,6 +793,13 @@ import {typeof a} from \\"b\\";
     -
         external: 'a'
         kind: 'typeof'
+        loc:
+          end:
+            column: 16
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'b'
   statements: []
@@ -670,6 +817,13 @@ export default class {}
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 23
+            line: 1
+          start:
+            column: 0
+            line: 1
         local: '_default'
   imports: []
   statements:
@@ -700,16 +854,37 @@ import {a, type b, typeof c} from \\"b\\";
     -
         external: 'a'
         kind: 'value'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'b'
     -
         external: 'b'
         kind: 'type'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 11
+            line: 1
         local: 'b'
         source: 'b'
     -
         external: 'c'
         kind: 'typeof'
+        loc:
+          end:
+            column: 27
+            line: 1
+          start:
+            column: 19
+            line: 1
         local: 'c'
         source: 'b'
   statements: []
@@ -727,6 +902,13 @@ export {a}
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
   imports: []
   statements: []
@@ -744,9 +926,23 @@ export {a, b}
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
     -
         external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
         local: 'b'
   imports: []
   statements: []
@@ -764,6 +960,13 @@ export {a as b}
   exports:
     -
         external: 'b'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
   imports: []
   statements: []
@@ -781,6 +984,13 @@ export function a() {}
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 22
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
   imports: []
   statements:
@@ -808,6 +1018,13 @@ export class a {}
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
   imports: []
   statements:
@@ -831,6 +1048,13 @@ export var a;
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
   imports: []
   statements:
@@ -855,9 +1079,17 @@ export var a, b;
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 16
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
     -
         external: 'b'
+        loc: [Circular]
         local: 'b'
   imports: []
   statements:
@@ -889,6 +1121,13 @@ export let a;
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
   imports: []
   statements:
@@ -913,6 +1152,13 @@ export default from \\"b\\";
   exports:
     -
         external: 'default'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'default'
         source: 'b'
   imports: []
@@ -931,6 +1177,13 @@ export a from \\"b\\";
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
         local: 'a'
         source: 'b'
   imports: []
@@ -948,6 +1201,13 @@ export * from \\"b\\";
 \`
   exports:
     -
+        loc:
+          end:
+            column: 18
+            line: 1
+          start:
+            column: 0
+            line: 1
         source: 'b'
   imports: []
   statements: []
@@ -965,6 +1225,13 @@ export {a} from \\"b\\";
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'b'
   imports: []
@@ -983,10 +1250,24 @@ export {a, b} from \\"b\\";
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'b'
     -
         external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
         local: 'b'
         source: 'b'
   imports: []
@@ -1005,6 +1286,13 @@ export {a as b} from \\"c\\";
   exports:
     -
         external: 'b'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'a'
         source: 'c'
   imports: []
@@ -1023,6 +1311,13 @@ export {default as a} from \\"b\\";
   exports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 20
+            line: 1
+          start:
+            column: 8
+            line: 1
         local: 'default'
         source: 'b'
   imports: []
