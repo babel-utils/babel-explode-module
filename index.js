@@ -237,31 +237,47 @@ exploders.VariableDeclaration = (node, exploded) => {
 // do nothing...
 exploders.EmptyStatement = () => {};
 
+function initExploded() {
+  return {
+    imports: [],
+    exports: [],
+    statements: [],
+  };
+}
+
+function explodeNode(exploded, node) {
+  let exploder = exploders[node.type];
+  if (exploder) {
+    exploder(node, exploded);
+  } else {
+    exploded.statements.push(node);
+  }
+}
+
+function explodeStatement(node /*: Node */) /*: Exploded */ {
+  if (!t.isStatement(node)) {
+    throw new Error(
+      `Must pass a statement node to explodeStatement, received ${node.type}`
+    );
+  }
+  let exploded = initExploded();
+  explodeNode(exploded, node);
+  return exploded;
+}
+
 function explodeModule(node /*: Node */) /*: Exploded */ {
   if (t.isFile(node)) {
     node = node.program;
   } else if (!t.isProgram(node)) {
     throw new Error(
-      `Must pass a "File" or "Program" node to explode module, received ${node.type}`
+      `Must pass a "File" or "Program" node to explodeModule, received ${node.type}`
     );
   }
 
-  let exploded = {
-    imports: [],
-    exports: [],
-    statements: [],
-  };
-
-  for (let item of node.body) {
-    let exploder = exploders[item.type];
-    if (exploder) {
-      exploder(item, exploded);
-    } else {
-      exploded.statements.push(item);
-    }
-  }
-
+  let exploded = initExploded();
+  for (let item of node.body) explodeNode(exploded, item);
   return exploded;
 }
 
-module.exports = explodeModule;
+exports.explodeStatement = explodeStatement;
+exports.explodeModule = explodeModule;

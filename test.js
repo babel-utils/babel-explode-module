@@ -1,7 +1,7 @@
 // @flow
 'use strict';
 const t = require('babel-types');
-const explodeModule = require('./');
+const {explodeModule} = require('./');
 const pluginTester = require('babel-plugin-tester');
 const printAST = require('ast-pretty-print');
 const getBabylonOptions = require('babylon-options');
