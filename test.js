@@ -1,17 +1,17 @@
 // @flow
 'use strict';
-const t = require('babel-types');
+const t = require('@babel/types');
 const {explodeModule} = require('./');
 const pluginTester = require('babel-plugin-tester');
 const printAST = require('ast-pretty-print');
 const getBabylonOptions = require('babylon-options');
 
-const babelOptions = {
+const babelOptions = (plugins=[]) => ({
   parserOpts: getBabylonOptions({
     stage: 0,
-    plugins: ['flow'],
+    plugins,
   }),
-};
+});
 
 const plugin = () => {
   return {
@@ -36,12 +36,38 @@ const plugin = () => {
   };
 };
 
-pluginTester({
-  title: 'export',
-  plugin,
-  snapshot: true,
-  babelOptions,
-  tests: {
+/*::
+type Tests = { [string]: { code: string } }
+*/
+
+function runTests(name, tests /*: { js: Tests, flow?: Tests, ts?: Tests }*/) {
+  pluginTester({
+    title: name,
+    plugin,
+    snapshot: true,
+    babelOptions: babelOptions(),
+    tests: tests.js,
+  });
+  
+  pluginTester({
+    title: `${name} (ts)`,
+    plugin,
+    snapshot: true,
+    babelOptions: babelOptions(['typescript']),
+    tests: Object.assign({}, tests.js, tests.ts),
+  });
+  
+  pluginTester({
+    title: `${name} (flow)`,
+    plugin,
+    snapshot: true,
+    babelOptions: babelOptions(['flow']),
+    tests: Object.assign({}, tests.js, tests.flow),
+  });
+}
+
+runTests('export', {
+  js: {
     'default binding': {code: 'export default a;'},
     'default object': {code: 'export default {a};'},
     'default array': {code: 'export default [a];'},
@@ -69,20 +95,22 @@ pluginTester({
     'from named renamed': {code: 'export {a as b} from "c";'},
     'from named default renamed': {code: 'export {default as a} from "b";'},
   },
+  ts: {
+    'export type': { code: 'export type a = {}' },
+    'export interface': { code: 'export interface a {}' },
+  }
 });
 
-pluginTester({
-  title: 'imports',
-  plugin,
-  snapshot: true,
-  babelOptions,
-  tests: {
+runTests('imports', {
+  js: {
     default: {code: 'import a from "b";'},
     named: {code: 'import {a} from "b";'},
     'named renamed': {code: 'import {a as b} from "c";'},
     namespace: {code: 'import * as a from "b";'},
     'default and named': {code: 'import a, {b} from "c";'},
     effect: {code: 'import "c";'},
+  },
+  flow: {
     'import type': {code: 'import type a from "b";'},
     'import typeof': {code: 'import typeof a from "b";'},
     'import type inner': {code: 'import {type a} from "b";'},
@@ -90,15 +118,11 @@ pluginTester({
     'import value/type/typeof inner': {
       code: 'import {a, type b, typeof c} from "b";',
     },
-  },
+  }
 });
 
-pluginTester({
-  title: 'statements',
-  plugin,
-  snapshot: true,
-  babelOptions,
-  tests: {
+runTests('statements', {
+  js: {
     empty: {code: ';'},
     variable: {code: 'var a;'},
     function: {code: 'function a() {}'},
@@ -106,6 +130,12 @@ pluginTester({
     'variable multiple': {code: 'var a, b;'},
     for: {code: 'for (;;) {}'},
     while: {code: 'while (a) {}'},
+  },
+  flow: {
+    'type alias': {code: 'type a = {};'},
+    interface: {code: 'interface a {}'},
+  },
+  ts: {
     'type alias': {code: 'type a = {};'},
     interface: {code: 'interface a {}'},
   },

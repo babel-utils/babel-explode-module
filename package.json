@@ -13,11 +13,12 @@
     "ci": "yarn flow && yarn test -- --runInBand --coverage"
   },
   "dependencies": {
-    "babel-types": "^6.24.1"
+    "@babel/types": "^7.0.0-beta.42"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.42",
     "ast-pretty-print": "^1.1.5",
-    "babel-core": "^6.26.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-tester": "^5.0.0",
     "babylon-options": "^2.0.1",
     "flow-bin": "^0.46.0",

@@ -20,7 +20,97 @@ class a {}
 "
 `;
 
+exports[`class 2`] = `
+"
+class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - ClassDeclaration (1:0,1:10)
+        body: ClassBody (1:8,1:10)
+          body: []
+        id: Identifier (1:6,1:7)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`class 3`] = `
+"
+class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - ClassDeclaration (1:0,1:10)
+        body: ClassBody (1:8,1:10)
+          body: []
+        id: Identifier (1:6,1:7)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
 exports[`default 1`] = `
+"
+import a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`default 2`] = `
+"
+import a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`default 3`] = `
 "
 import a from \\"b\\";
 
@@ -47,6 +137,78 @@ import a from \\"b\\";
 `;
 
 exports[`default and named 1`] = `
+"
+import a, {b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'c'
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
+        local: 'b'
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`default and named 2`] = `
+"
+import a, {b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'c'
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
+        local: 'b'
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`default and named 3`] = `
 "
 import a, {b} from \\"c\\";
 
@@ -118,7 +280,123 @@ export default [a];
 "
 `;
 
+exports[`default array 2`] = `
+"
+export default [a];
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ArrayExpression (1:15,1:18)
+                elements:
+                  - Identifier (1:16,1:17)
+                      name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default array 3`] = `
+"
+export default [a];
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ArrayExpression (1:15,1:18)
+                elements:
+                  - Identifier (1:16,1:17)
+                      name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
 exports[`default binding 1`] = `
+"
+export default a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`default binding 2`] = `
+"
+export default a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`default binding 3`] = `
 "
 export default a;
 
@@ -174,7 +452,141 @@ export default true;
 "
 `;
 
+exports[`default boolean 2`] = `
+"
+export default true;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 20
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:19)
+        declarations:
+          - VariableDeclarator (1:15,1:19)
+              id: Identifier
+                name: '_default'
+              init: BooleanLiteral (1:15,1:19)
+                value: true
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default boolean 3`] = `
+"
+export default true;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 20
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:19)
+        declarations:
+          - VariableDeclarator (1:15,1:19)
+              id: Identifier
+                name: '_default'
+              init: BooleanLiteral (1:15,1:19)
+                value: true
+        kind: 'const'
+\`;
+"
+`;
+
 exports[`default class 1`] = `
+"
+export default class {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 23
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:23)
+        declarations:
+          - VariableDeclarator (1:15,1:23)
+              id: Identifier
+                name: '_default'
+              init: ClassExpression (1:15,1:23)
+                body: ClassBody (1:21,1:23)
+                  body: []
+                id: null
+                superClass: null
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default class 2`] = `
+"
+export default class {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 23
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:23)
+        declarations:
+          - VariableDeclarator (1:15,1:23)
+              id: Identifier
+                name: '_default'
+              init: ClassExpression (1:15,1:23)
+                body: ClassBody (1:21,1:23)
+                  body: []
+                id: null
+                superClass: null
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default class 3`] = `
 "
 export default class {}
 
@@ -246,6 +658,80 @@ export default a ? b : c;
 "
 `;
 
+exports[`default expression 2`] = `
+"
+export default a ? b : c;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 25
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:24)
+        declarations:
+          - VariableDeclarator (1:15,1:24)
+              id: Identifier
+                name: '_default'
+              init: ConditionalExpression (1:15,1:24)
+                alternate: Identifier (1:23,1:24)
+                  name: 'c'
+                consequent: Identifier (1:19,1:20)
+                  name: 'b'
+                test: Identifier (1:15,1:16)
+                  name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default expression 3`] = `
+"
+export default a ? b : c;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 25
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:24)
+        declarations:
+          - VariableDeclarator (1:15,1:24)
+              id: Identifier
+                name: '_default'
+              init: ConditionalExpression (1:15,1:24)
+                alternate: Identifier (1:23,1:24)
+                  name: 'c'
+                consequent: Identifier (1:19,1:20)
+                  name: 'b'
+                test: Identifier (1:15,1:16)
+                  name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
 exports[`default function 1`] = `
 "
 export default function() {}
@@ -276,7 +762,82 @@ export default function() {}
                 body: BlockStatement (1:26,1:28)
                   body: []
                   directives: []
-                expression: false
+                generator: false
+                id: null
+                params: []
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default function 2`] = `
+"
+export default function() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 28
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:28)
+        declarations:
+          - VariableDeclarator (1:15,1:28)
+              id: Identifier
+                name: '_default'
+              init: FunctionExpression (1:15,1:28)
+                async: false
+                body: BlockStatement (1:26,1:28)
+                  body: []
+                  directives: []
+                generator: false
+                id: null
+                params: []
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default function 3`] = `
+"
+export default function() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 28
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:28)
+        declarations:
+          - VariableDeclarator (1:15,1:28)
+              id: Identifier
+                name: '_default'
+              init: FunctionExpression (1:15,1:28)
+                async: false
+                body: BlockStatement (1:26,1:28)
+                  body: []
+                  directives: []
                 generator: false
                 id: null
                 params: []
@@ -286,6 +847,66 @@ export default function() {}
 `;
 
 exports[`default named class 1`] = `
+"
+export default class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 25
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:15,1:25)
+        body: ClassBody (1:23,1:25)
+          body: []
+        id: Identifier (1:21,1:22)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`default named class 2`] = `
+"
+export default class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 25
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:15,1:25)
+        body: ClassBody (1:23,1:25)
+          body: []
+        id: Identifier (1:21,1:22)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`default named class 3`] = `
 "
 export default class a {}
 
@@ -340,7 +961,72 @@ export default function a() {}
         body: BlockStatement (1:28,1:30)
           body: []
           directives: []
-        expression: false
+        generator: false
+        id: Identifier (1:24,1:25)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`default named function 2`] = `
+"
+export default function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 30
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:15,1:30)
+        async: false
+        body: BlockStatement (1:28,1:30)
+          body: []
+          directives: []
+        generator: false
+        id: Identifier (1:24,1:25)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`default named function 3`] = `
+"
+export default function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 30
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:15,1:30)
+        async: false
+        body: BlockStatement (1:28,1:30)
+          body: []
+          directives: []
         generator: false
         id: Identifier (1:24,1:25)
           name: 'a'
@@ -350,6 +1036,76 @@ export default function a() {}
 `;
 
 exports[`default number 1`] = `
+"
+export default 1;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:16)
+        declarations:
+          - VariableDeclarator (1:15,1:16)
+              id: Identifier
+                name: '_default'
+              init: NumericLiteral (1:15,1:16)
+                extra:
+                  raw: '1'
+                  rawValue: 1
+                value: 1
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default number 2`] = `
+"
+export default 1;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:16)
+        declarations:
+          - VariableDeclarator (1:15,1:16)
+              id: Identifier
+                name: '_default'
+              init: NumericLiteral (1:15,1:16)
+                extra:
+                  raw: '1'
+                  rawValue: 1
+                value: 1
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default number 3`] = `
 "
 export default 1;
 
@@ -420,7 +1176,90 @@ export default {a};
                       method: false
                       shorthand: true
                       value: Identifier (1:16,1:17)
-                        __clone: Function
+                        name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default object 2`] = `
+"
+export default {a};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ObjectExpression (1:15,1:18)
+                properties:
+                  - ObjectProperty (1:16,1:17)
+                      computed: false
+                      extra:
+                        shorthand: true
+                      key: Identifier (1:16,1:17)
+                        name: 'a'
+                      method: false
+                      shorthand: true
+                      value: Identifier (1:16,1:17)
+                        name: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default object 3`] = `
+"
+export default {a};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: ObjectExpression (1:15,1:18)
+                properties:
+                  - ObjectProperty (1:16,1:17)
+                      computed: false
+                      extra:
+                        shorthand: true
+                      key: Identifier (1:16,1:17)
+                        name: 'a'
+                      method: false
+                      shorthand: true
+                      value: Identifier (1:16,1:17)
                         name: 'a'
         kind: 'const'
 \`;
@@ -428,6 +1267,76 @@ export default {a};
 `;
 
 exports[`default string 1`] = `
+"
+export default \\"a\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: StringLiteral (1:15,1:18)
+                extra:
+                  raw: '\\"a\\"'
+                  rawValue: 'a'
+                value: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default string 2`] = `
+"
+export default \\"a\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 19
+            line: 1
+          start:
+            column: 0
+            line: 1
+        local: '_default'
+  imports: []
+  statements:
+    - VariableDeclaration (1:15,1:18)
+        declarations:
+          - VariableDeclarator (1:15,1:18)
+              id: Identifier
+                name: '_default'
+              init: StringLiteral (1:15,1:18)
+                extra:
+                  raw: '\\"a\\"'
+                  rawValue: 'a'
+                value: 'a'
+        kind: 'const'
+\`;
+"
+`;
+
+exports[`default string 3`] = `
 "
 export default \\"a\\";
 
@@ -485,6 +1394,52 @@ import \\"c\\";
 "
 `;
 
+exports[`effect 2`] = `
+"
+import \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        loc:
+          end:
+            column: 11
+            line: 1
+          start:
+            column: 0
+            line: 1
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`effect 3`] = `
+"
+import \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        loc:
+          end:
+            column: 11
+            line: 1
+          start:
+            column: 0
+            line: 1
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
 exports[`empty 1`] = `
 "
 ;
@@ -499,7 +1454,137 @@ exports[`empty 1`] = `
 "
 `;
 
+exports[`empty 2`] = `
+"
+;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`empty 3`] = `
+"
+;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`export interface 1`] = `
+"
+export interface a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 21
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - TSInterfaceDeclaration (1:7,1:21)
+        body: TSInterfaceBody (1:19,1:21)
+          body: []
+        id: Identifier (1:17,1:18)
+          name: 'a'
+        typeParameters: undefined
+\`;
+"
+`;
+
+exports[`export type 1`] = `
+"
+export type a = {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 18
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - TSTypeAliasDeclaration (1:7,1:18)
+        id: Identifier (1:12,1:13)
+          name: 'a'
+        typeAnnotation: TSTypeLiteral (1:16,1:18)
+          members: []
+        typeParameters: undefined
+\`;
+"
+`;
+
 exports[`for 1`] = `
+"
+for (;;) {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - ForStatement (1:0,1:11)
+        body: BlockStatement (1:9,1:11)
+          body: []
+          directives: []
+        init: null
+        test: null
+        update: null
+\`;
+"
+`;
+
+exports[`for 2`] = `
+"
+for (;;) {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - ForStatement (1:0,1:11)
+        body: BlockStatement (1:9,1:11)
+          body: []
+          directives: []
+        init: null
+        test: null
+        update: null
+\`;
+"
+`;
+
+exports[`for 3`] = `
 "
 for (;;) {}
 
@@ -543,7 +1628,103 @@ export * from \\"b\\";
 "
 `;
 
+exports[`from all 2`] = `
+"
+export * from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        loc:
+          end:
+            column: 18
+            line: 1
+          start:
+            column: 0
+            line: 1
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from all 3`] = `
+"
+export * from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        loc:
+          end:
+            column: 18
+            line: 1
+          start:
+            column: 0
+            line: 1
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
 exports[`from default 1`] = `
+"
+export default from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from default 2`] = `
+"
+export default from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'default'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from default 3`] = `
 "
 export default from \\"b\\";
 
@@ -593,6 +1774,56 @@ export a from \\"b\\";
 "
 `;
 
+exports[`from default renamed 2`] = `
+"
+export a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from default renamed 3`] = `
+"
+export a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 8
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
 exports[`from named 1`] = `
 "
 export {a} from \\"b\\";
@@ -618,7 +1849,107 @@ export {a} from \\"b\\";
 "
 `;
 
+exports[`from named 2`] = `
+"
+export {a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from named 3`] = `
+"
+export {a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
 exports[`from named default renamed 1`] = `
+"
+export {default as a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 20
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from named default renamed 2`] = `
+"
+export {default as a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 20
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'default'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from named default renamed 3`] = `
 "
 export {default as a} from \\"b\\";
 
@@ -679,7 +2010,129 @@ export {a, b} from \\"b\\";
 "
 `;
 
+exports[`from named multiple 2`] = `
+"
+export {a, b} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'b'
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
+        local: 'b'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from named multiple 3`] = `
+"
+export {a, b} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'b'
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
+        local: 'b'
+        source: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
 exports[`from named renamed 1`] = `
+"
+export {a as b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'c'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from named renamed 2`] = `
+"
+export {a as b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'c'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`from named renamed 3`] = `
 "
 export {a as b} from \\"c\\";
 
@@ -719,7 +2172,52 @@ function a() {}
         body: BlockStatement (1:13,1:15)
           body: []
           directives: []
-        expression: false
+        generator: false
+        id: Identifier (1:9,1:10)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`function 2`] = `
+"
+function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - FunctionDeclaration (1:0,1:15)
+        async: false
+        body: BlockStatement (1:13,1:15)
+          body: []
+          directives: []
+        generator: false
+        id: Identifier (1:9,1:10)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`function 3`] = `
+"
+function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - FunctionDeclaration (1:0,1:15)
+        async: false
+        body: BlockStatement (1:13,1:15)
+          body: []
+          directives: []
         generator: false
         id: Identifier (1:9,1:10)
           name: 'a'
@@ -892,6 +2390,26 @@ interface a {}
   exports: []
   imports: []
   statements:
+    - TSInterfaceDeclaration (1:0,1:14)
+        body: TSInterfaceBody (1:12,1:14)
+          body: []
+        id: Identifier (1:10,1:11)
+          name: 'a'
+        typeParameters: undefined
+\`;
+"
+`;
+
+exports[`interface 2`] = `
+"
+interface a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
     - InterfaceDeclaration (1:0,1:14)
         body: ObjectTypeAnnotation (1:12,1:14)
           callProperties: []
@@ -908,6 +2426,56 @@ interface a {}
 `;
 
 exports[`named 1`] = `
+"
+import {a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`named 2`] = `
+"
+import {a} from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`named 3`] = `
 "
 import {a} from \\"b\\";
 
@@ -963,6 +2531,66 @@ export class a {}
 "
 `;
 
+exports[`named class 2`] = `
+"
+export class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:7,1:17)
+        body: ClassBody (1:15,1:17)
+          body: []
+        id: Identifier (1:13,1:14)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
+exports[`named class 3`] = `
+"
+export class a {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 17
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - ClassDeclaration (1:7,1:17)
+        body: ClassBody (1:15,1:17)
+          body: []
+        id: Identifier (1:13,1:14)
+          name: 'a'
+        superClass: null
+\`;
+"
+`;
+
 exports[`named function 1`] = `
 "
 export function a() {}
@@ -988,7 +2616,72 @@ export function a() {}
         body: BlockStatement (1:20,1:22)
           body: []
           directives: []
-        expression: false
+        generator: false
+        id: Identifier (1:16,1:17)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`named function 2`] = `
+"
+export function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 22
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:7,1:22)
+        async: false
+        body: BlockStatement (1:20,1:22)
+          body: []
+          directives: []
+        generator: false
+        id: Identifier (1:16,1:17)
+          name: 'a'
+        params: []
+\`;
+"
+`;
+
+exports[`named function 3`] = `
+"
+export function a() {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 22
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - FunctionDeclaration (1:7,1:22)
+        async: false
+        body: BlockStatement (1:20,1:22)
+          body: []
+          directives: []
         generator: false
         id: Identifier (1:16,1:17)
           name: 'a'
@@ -998,6 +2691,68 @@ export function a() {}
 `;
 
 exports[`named let 1`] = `
+"
+export let a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'let'
+\`;
+"
+`;
+
+exports[`named let 2`] = `
+"
+export let a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'let'
+\`;
+"
+`;
+
+exports[`named let 3`] = `
 "
 export let a;
 
@@ -1039,6 +2794,56 @@ import {a as b} from \\"c\\";
   imports:
     -
         external: 'a'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'b'
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`named renamed 2`] = `
+"
+import {a as b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'b'
+        source: 'c'
+  statements: []
+\`;
+"
+`;
+
+exports[`named renamed 3`] = `
+"
+import {a as b} from \\"c\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        external: 'a'
         kind: 'value'
         loc:
           end:
@@ -1055,6 +2860,54 @@ import {a as b} from \\"c\\";
 `;
 
 exports[`named specifier 1`] = `
+"
+export {a}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`named specifier 2`] = `
+"
+export {a}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`named specifier 3`] = `
 "
 export {a}
 
@@ -1112,6 +2965,74 @@ export {a, b}
 "
 `;
 
+exports[`named specifier multiple 2`] = `
+"
+export {a, b}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
+        local: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`named specifier multiple 3`] = `
+"
+export {a, b}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 9
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 12
+            line: 1
+          start:
+            column: 11
+            line: 1
+        local: 'b'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
 exports[`named specifier renamed 1`] = `
 "
 export {a as b}
@@ -1136,7 +3057,117 @@ export {a as b}
 "
 `;
 
+exports[`named specifier renamed 2`] = `
+"
+export {a as b}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
+exports[`named specifier renamed 3`] = `
+"
+export {a as b}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'b'
+        loc:
+          end:
+            column: 14
+            line: 1
+          start:
+            column: 8
+            line: 1
+        local: 'a'
+  imports: []
+  statements: []
+\`;
+"
+`;
+
 exports[`named var 1`] = `
+"
+export var a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`named var 2`] = `
+"
+export var a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`named var 3`] = `
 "
 export var a;
 
@@ -1209,7 +3240,139 @@ export var a, b;
 "
 `;
 
+exports[`named var multiple 2`] = `
+"
+export var a, b;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 16
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+    -
+        external: 'b'
+        loc: [Circular]
+        local: 'b'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'var'
+    - VariableDeclaration (1:14,1:15)
+        declarations:
+          - VariableDeclarator (1:14,1:15)
+              id: Identifier (1:14,1:15)
+                name: 'b'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`named var multiple 3`] = `
+"
+export var a, b;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports:
+    -
+        external: 'a'
+        loc:
+          end:
+            column: 16
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+    -
+        external: 'b'
+        loc: [Circular]
+        local: 'b'
+  imports: []
+  statements:
+    - VariableDeclaration (1:11,1:12)
+        declarations:
+          - VariableDeclarator (1:11,1:12)
+              id: Identifier (1:11,1:12)
+                name: 'a'
+              init: null
+        kind: 'var'
+    - VariableDeclaration (1:14,1:15)
+        declarations:
+          - VariableDeclarator (1:14,1:15)
+              id: Identifier (1:14,1:15)
+                name: 'b'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
 exports[`namespace 1`] = `
+"
+import * as a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`namespace 2`] = `
+"
+import * as a from \\"b\\";
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports:
+    -
+        loc:
+          end:
+            column: 13
+            line: 1
+          start:
+            column: 7
+            line: 1
+        local: 'a'
+        source: 'b'
+  statements: []
+\`;
+"
+`;
+
+exports[`namespace 3`] = `
 "
 import * as a from \\"b\\";
 
@@ -1244,6 +3407,26 @@ type a = {};
   exports: []
   imports: []
   statements:
+    - TSTypeAliasDeclaration (1:0,1:12)
+        id: Identifier (1:5,1:6)
+          name: 'a'
+        typeAnnotation: TSTypeLiteral (1:9,1:11)
+          members: []
+        typeParameters: undefined
+\`;
+"
+`;
+
+exports[`type alias 2`] = `
+"
+type a = {};
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
     - TypeAlias (1:0,1:12)
         id: Identifier (1:5,1:6)
           name: 'a'
@@ -1258,6 +3441,48 @@ type a = {};
 `;
 
 exports[`variable 1`] = `
+"
+var a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - VariableDeclaration (1:4,1:5)
+        declarations:
+          - VariableDeclarator (1:4,1:5)
+              id: Identifier (1:4,1:5)
+                name: 'a'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`variable 2`] = `
+"
+var a;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - VariableDeclaration (1:4,1:5)
+        declarations:
+          - VariableDeclarator (1:4,1:5)
+              id: Identifier (1:4,1:5)
+                name: 'a'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`variable 3`] = `
 "
 var a;
 
@@ -1306,7 +3531,103 @@ var a, b;
 "
 `;
 
+exports[`variable multiple 2`] = `
+"
+var a, b;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - VariableDeclaration (1:4,1:5)
+        declarations:
+          - VariableDeclarator (1:4,1:5)
+              id: Identifier (1:4,1:5)
+                name: 'a'
+              init: null
+        kind: 'var'
+    - VariableDeclaration (1:7,1:8)
+        declarations:
+          - VariableDeclarator (1:7,1:8)
+              id: Identifier (1:7,1:8)
+                name: 'b'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
+exports[`variable multiple 3`] = `
+"
+var a, b;
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - VariableDeclaration (1:4,1:5)
+        declarations:
+          - VariableDeclarator (1:4,1:5)
+              id: Identifier (1:4,1:5)
+                name: 'a'
+              init: null
+        kind: 'var'
+    - VariableDeclaration (1:7,1:8)
+        declarations:
+          - VariableDeclarator (1:7,1:8)
+              id: Identifier (1:7,1:8)
+                name: 'b'
+              init: null
+        kind: 'var'
+\`;
+"
+`;
+
 exports[`while 1`] = `
+"
+while (a) {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - WhileStatement (1:0,1:12)
+        body: BlockStatement (1:10,1:12)
+          body: []
+          directives: []
+        test: Identifier (1:7,1:8)
+          name: 'a'
+\`;
+"
+`;
+
+exports[`while 2`] = `
+"
+while (a) {}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+\`
+  exports: []
+  imports: []
+  statements:
+    - WhileStatement (1:0,1:12)
+        body: BlockStatement (1:10,1:12)
+          body: []
+          directives: []
+        test: Identifier (1:7,1:8)
+          name: 'a'
+\`;
+"
+`;
+
+exports[`while 3`] = `
 "
 while (a) {}
 

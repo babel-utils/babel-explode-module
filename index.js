@@ -1,6 +1,6 @@
 // @flow
 'use strict';
-const t = require('babel-types');
+const t = require('@babel/types');
 
 /*::
 type Location = {
@@ -124,7 +124,7 @@ exploders.ImportDeclaration = (node, exploded) => {
         kind = specifier.importKind || kind;
       } else if (specifier.type === 'ImportDefaultSpecifier') {
         local = specifier.local.name;
-        external = kind === 'value' ? 'default' : local; // Flow is dumb...
+        external = kind === 'value' || kind === undefined ? 'default' : local; // Flow is dumb...
       } else if (specifier.type === 'ImportNamespaceSpecifier') {
         local = specifier.local.name;
       } else {
@@ -190,7 +190,9 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
       t.isClassDeclaration(declaration) ||
       t.isFunctionDeclaration(declaration) ||
       t.isTypeAlias(declaration) ||
-      t.isInterfaceDeclaration(declaration)
+      t.isInterfaceDeclaration(declaration) ||
+      t.isTSTypeAliasDeclaration(declaration) ||
+      t.isTSInterfaceDeclaration(declaration)
     ) {
       let name = declaration.id.name;
       exploded.exports.push(toModuleSpecifier(null, name, name, source, declaration.loc));
