@@ -1,6 +1,6 @@
 // @flow
 'use strict';
-const t = require('babel-types');
+const t = require('@babel/types');
 
 /*::
 type Location = {
@@ -190,7 +190,12 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
       t.isClassDeclaration(declaration) ||
       t.isFunctionDeclaration(declaration) ||
       t.isTypeAlias(declaration) ||
-      t.isInterfaceDeclaration(declaration)
+      t.isInterfaceDeclaration(declaration) ||
+      t.isTSTypeAliasDeclaration(declaration) ||
+      t.isTSInterfaceDeclaration(declaration) ||
+      t.isTSEnumDeclaration(declaration) ||
+      t.isTSDeclareFunction(declaration) ||
+      t.isTSDeclareMethod(declaration)
     ) {
       let name = declaration.id.name;
       exploded.exports.push(toModuleSpecifier(null, name, name, source, declaration.loc));
