@@ -195,7 +195,8 @@ exploders.ExportNamedDeclaration = (node, exploded) => {
       t.isTSInterfaceDeclaration(declaration) ||
       t.isTSEnumDeclaration(declaration) ||
       t.isTSDeclareFunction(declaration) ||
-      t.isTSDeclareMethod(declaration)
+      t.isTSDeclareMethod(declaration) ||
+      t.isOpaqueType(declaration)
     ) {
       let name = declaration.id.name;
       exploded.exports.push(toModuleSpecifier(null, name, name, source, declaration.loc));
